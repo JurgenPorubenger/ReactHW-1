@@ -8,9 +8,9 @@ class Car extends React.Component{
         this.props=props;
     }
     render() {
-        const carPosition=this.props.startPositions
+        console.log(this.props.startPositions)
         return (
-            <div className={"carStyle"} style={carPosition}>
+            <div className={"carStyle"} style={this.props.startPositions}>
                 1
             </div>
         );

@@ -12,15 +12,22 @@ class Parking extends React.Component{
         };
         }
     componentDidMount() {
+        function setCarSize(start,val) {
+            return  start+val;
+        }
         const cars = [
-            {gridRowStart:1,gridRowEnd:5,gridColumnStart:3,gridColumnEnd:5},
-            {gridRowStart:4,gridRowEnd:7,gridColumnStart:8,gridColumnEnd:10}
+            {gridRowStart:1,gridRowEnd:null,gridColumnStart:3,gridColumnEnd:null},
+            {gridRowStart:4,gridRowEnd:null,gridColumnStart:8,gridColumnEnd:null},
+            {gridRowStart:8,gridRowEnd:null,gridColumnStart:13,gridColumnEnd:null}
         ];
+        cars.forEach(car=>{
+            car.gridRowEnd=setCarSize.apply(car,[car.gridRowStart,5]);
+            car.gridColumnEnd=setCarSize.apply(car,[car.gridColumnStart,2]);
+        });
+
         this.setState(
             {carPositions:cars}
         );
-
-
     }
 
     render() {
@@ -33,11 +40,6 @@ class Parking extends React.Component{
                 }
             </div>
         );
-
-    // const {liList}= props;
-    // if(liList&&Array.isArray(liList)&&liList.length>0)
-    //     return <ul>{liList.map((li, index) => <li key={index}>{li}</li>)}</ul>
-    // return 'LOHOHO'
     }
 }
 
