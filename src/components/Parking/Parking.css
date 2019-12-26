@@ -1,0 +1,8 @@
+.orange {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    background-color: orange;
+    width: 400px;
+    height: 400px;
+}
